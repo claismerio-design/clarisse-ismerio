@@ -36,7 +36,7 @@ NAV = [
     ("contato.html", "Contato"),
 ]
 
-IMG = "../assets"
+IMG = "assets"
 
 # ----------------------------------------------------------------------------
 # CSS  (um arquivo, três temas via classe no body)
@@ -320,18 +320,6 @@ def footer():
   <p class="copy">© 2026 Clarisse Ismério · Pesquisas Históricas. Todos os direitos reservados.</p>
 </div></footer>'''
 
-def switcher(theme, active):
-    """Barra flutuante para alternar entre as 3 identidades, na mesma página."""
-    labels = {"opcao-1": "1", "opcao-2": "2", "opcao-3": "3"}
-    opts = ""
-    for key, num in labels.items():
-        cur = ' cur' if key == theme else ''
-        opts += f'<a class="sw-opt{cur}" href="../{key}/{active}" title="{THEMES[key]["nome"]}">{num}</a>'
-    return f'''<div class="switcher">
-  <span class="sw-lbl">Identidade</span>{opts}
-  <a class="sw-home" href="../escolha.html" title="Comparar as três">⤺</a>
-</div>'''
-
 def page(theme, active, title, body):
     t = THEMES[theme]
     return f'''<!DOCTYPE html>
@@ -343,13 +331,12 @@ def page(theme, active, title, body):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 {t["fonts"]}
-<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body class="{t["cls"]}">
 {nav(active, t["cls"])}
 {body}
 {footer()}
-{switcher(theme, active)}
 </body>
 </html>'''
 
@@ -666,19 +653,19 @@ BUILDERS = {
 # ----------------------------------------------------------------------------
 # BUILD
 # ----------------------------------------------------------------------------
+# Identidade visual em uso (Clássica & Elegante). Site único, gerado na raiz.
+THEME = "opcao-1"
+
 def main():
     with open(os.path.join(ROOT, "assets", "site.css"), "w", encoding="utf-8") as f:
         f.write(CSS)
-    for theme in THEMES:
-        d = os.path.join(ROOT, theme)
-        os.makedirs(d, exist_ok=True)
-        for fname, builder in BUILDERS.items():
-            with open(os.path.join(d, fname), "w", encoding="utf-8") as f:
-                f.write(builder(theme))
-        for a in ARTICLES:
-            with open(os.path.join(d, a["file"]), "w", encoding="utf-8") as f:
-                f.write(page_artigo(theme, a))
-        print(f"  {theme}: {len(BUILDERS) + len(ARTICLES)} páginas ({len(ARTICLES)} artigos)")
+    for fname, builder in BUILDERS.items():
+        with open(os.path.join(ROOT, fname), "w", encoding="utf-8") as f:
+            f.write(builder(THEME))
+    for a in ARTICLES:
+        with open(os.path.join(ROOT, a["file"]), "w", encoding="utf-8") as f:
+            f.write(page_artigo(THEME, a))
+    print(f"  site: {len(BUILDERS) + len(ARTICLES)} páginas ({len(ARTICLES)} artigos) na raiz")
     print("OK")
 
 if __name__ == "__main__":
