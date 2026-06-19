@@ -359,6 +359,21 @@ BOOKS = [
     ("Pequenos Detalhes de Bagé", "Ediurcamp · 2019", "As histórias e os detalhes que constroem a identidade de Bagé.", "R$ 49"),
 ]
 
+EXTERNAL_ARTICLES = [
+    {
+        "slug": "cemiterios-patrimoniais-cidade-dos-mortos-e-memoria-dos-vivos",
+        "title": "Cemitérios patrimoniais, cidade dos mortos e memória dos vivos",
+        "date": "15/06/2026 00:00",
+        "data_ext": "15 de junho de 2026",
+        "cat": "Patrimônio & Memória",
+        "img": "logo.jpeg",
+        "excerpt": "Reflexão sobre os cemitérios históricos como arquivos sensíveis da cidade, espaços de memória, arte e permanência simbólica.",
+        "body": "Os cemitérios patrimoniais guardam mais do que vestígios funerários: preservam narrativas, sensibilidades e marcas profundas da vida urbana. Entre esculturas, epitáfios e símbolos, esses espaços revelam modos de ver a morte, a memória e a permanência no tempo.\n\nNesta publicação, Clarisse Ismério retoma o cemitério como lugar de leitura histórica, ponto de encontro entre arte, patrimônio e memória coletiva. A cidade dos mortos, nesse sentido, ajuda a compreender a cidade dos vivos e seus valores, afetos e silenciamentos.\n\nPara acessar a publicação original no Minuano Conecta, utilize o link ao final desta página.",
+        "file": "artigo-cemiterios-patrimoniais-cidade-dos-mortos-e-memoria-dos-vivos.html",
+        "source": "https://www.jornalminuano.com.br/noticia/2026/06/15/cemiterios-patrimoniais-cidade-dos-mortos-e-memoria-dos-vivos",
+    }
+]
+
 def book_card(b, with_price=True):
     tit, ano, desc, preco = b
     price = f'<div class="price">{preco}</div>' if with_price else ''
@@ -407,7 +422,7 @@ def load_articles():
             "cat": cat, "img": ART_COVER.get(slug, img), "excerpt": _excerpt(a["body"]),
             "body": a["body"], "file": f"artigo-{slug}.html", "source": a["url"],
         })
-    return arts  # JSON já vem ordenado por data desc
+    return EXTERNAL_ARTICLES + arts
 
 ARTICLES = load_articles()
 
