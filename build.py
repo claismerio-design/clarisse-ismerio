@@ -314,7 +314,7 @@ def footer():
     <div><h4>Contato</h4><ul>
       <li>Bagé · Rio Grande do Sul</li>
       <li>claismerio@gmail.com</li>
-      <li>@clarisseismerio</li>
+      <li>@claismerio</li>
     </ul></div>
   </div>
   <p class="copy">© 2026 Clarisse Ismério · Pesquisas Históricas. Todos os direitos reservados.</p>
@@ -643,7 +643,7 @@ def page_contato(theme):
     <ul class="info-list">
       <li><span>📍</span><div><b>Cidade</b><br>Bagé · Rio Grande do Sul</div></li>
       <li><span>✉️</span><div><b>E-mail</b><br>claismerio@gmail.com</div></li>
-      <li><span>📷</span><div><b>Instagram</b><br>@clarisseismerio</div></li>
+      <li><span>📷</span><div><b>Instagram</b><br>@claismerio</div></li>
       <li><span>📰</span><div><b>Coluna</b><br>Jornal Minuano</div></li>
     </ul>
   </div>
