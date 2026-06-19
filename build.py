@@ -313,7 +313,7 @@ def footer():
     <div><h4>Navegação</h4><ul>{cols}</ul></div>
     <div><h4>Contato</h4><ul>
       <li>Bagé · Rio Grande do Sul</li>
-      <li>contato@clarisseismerio.com.br</li>
+      <li>claismerio@gmail.com</li>
       <li>@clarisseismerio</li>
     </ul></div>
   </div>
@@ -501,15 +501,21 @@ def page_sobre(theme):
 def page_midia(theme):
     cards = ""
     midia = [
-        ("Jornal Minuano", "Coluna de Clarisse Ismério", "Reflexões sobre história, memória e o universo feminino — publicadas semanalmente."),
-        ("Jornal Minuano", "Sarau Noturno celebra 17 anos", "A nova geração que mantém viva a tradição da educação patrimonial em Bagé."),
-        ("Urcamp", "Cultura, Memória e Patrimônio", "Participação em projetos de extensão e pesquisa sobre patrimônio cultural."),
-        ("Entrevistas", "A história contada com sensibilidade", "Participações em rádios, podcasts e eventos culturais da região."),
+        ("Jornal Minuano", "Coluna de Clarisse Ismério", "Reflexões sobre história, memória e o universo feminino, publicadas no Jornal Minuano, Coluna no Caderno Minuano Conecta, Jornal Minuano.", "https://www.jornalminuano.com.br/caderno/minuanoconecta", "Acessar caderno →"),
+        ("Jornal Minuano", "Publicações no Minuano Conecta", "Artigos assinados por Clarisse Ismério com foco em patrimônio, memória, história das mulheres e sensibilidades.", "blog.html", "Ver no site →"),
+        ("Urcamp", "Cultura, Memória e Patrimônio", "Registros institucionais da atuação de Clarisse Ismério em projetos, pesquisa e extensão ligados ao patrimônio cultural.", "https://urcamp.edu.br/", "Acessar portal →"),
+        ("Urcamp", "Notícias da Urcamp", "Portal de notícias da universidade com cobertura institucional de ações acadêmicas, culturais e patrimoniais.", "https://urcamp.edu.br/busca/news", "Ver notícias →"),
     ]
-    for src, tit, desc in midia:
-        cards += f'''<div class="mcard"><div class="src">{src}</div><h4>{tit}</h4><p>{desc}</p><a href="#">Ler matéria →</a></div>'''
+    for src, tit, desc, href, label in midia:
+        extra = ' target="_blank" rel="noopener"' if href.startswith("http") else ""
+        cards += f'''<div class="mcard"><div class="src">{src}</div><h4>{tit}</h4><p>{desc}</p><a href="{href}"{extra}>{label}</a></div>'''
+    posts = "".join(post_html(p) for p in ARTICLES)
     body = phead("Na Mídia", "Clarisse Ismério na imprensa e nos espaços culturais") + f'''
-<section class="block"><div class="wrap"><div class="grid2">{cards}</div></div></section>'''
+<section class="block"><div class="wrap"><div class="grid2">{cards}</div></div></section>
+<section class="block alt"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Minuano Conecta</span><h2>Todas as publicações</h2><div class="rule"></div></div>
+  {posts}
+</div></section>'''
     return page(theme, "midia.html", "Na Mídia", body)
 
 def page_livros(theme):
@@ -636,7 +642,7 @@ def page_contato(theme):
     <h2>Onde encontrar</h2>
     <ul class="info-list">
       <li><span>📍</span><div><b>Cidade</b><br>Bagé · Rio Grande do Sul</div></li>
-      <li><span>✉️</span><div><b>E-mail</b><br>contato@clarisseismerio.com.br</div></li>
+      <li><span>✉️</span><div><b>E-mail</b><br>claismerio@gmail.com</div></li>
       <li><span>📷</span><div><b>Instagram</b><br>@clarisseismerio</div></li>
       <li><span>📰</span><div><b>Coluna</b><br>Jornal Minuano</div></li>
     </ul>
