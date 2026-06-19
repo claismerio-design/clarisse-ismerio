@@ -420,8 +420,8 @@ def load_articles():
         arts.append({
             "slug": slug, "title": a["title"], "date": a["date"], "data_ext": _data_ext(a["date"]),
             "cat": cat, "img": ART_COVER.get(slug, img), "excerpt": _excerpt(a["body"]),
-            "body": a["body"], "file": f"artigo-{slug}.html", "source": a["url"],
-        })
+            "body": a["body"], "file": f"artigo-{slug}.html", "source": a["url"]},
+        )
     return EXTERNAL_ARTICLES + arts
 
 ARTICLES = load_articles()
@@ -516,7 +516,6 @@ def page_sobre(theme):
 def page_midia(theme):
     cards = ""
     midia = [
-        ("Jornal Minuano", "Coluna de Clarisse Ismério", "Reflexões sobre história, memória e o universo feminino, publicadas no Jornal Minuano, Coluna no Caderno Minuano Conecta, Jornal Minuano.", "https://www.jornalminuano.com.br/caderno/minuanoconecta", "Acessar caderno →"),
         ("Jornal Minuano", "Publicações no Minuano Conecta", "Artigos assinados por Clarisse Ismério com foco em patrimônio, memória, história das mulheres e sensibilidades.", "blog.html", "Ver no site →"),
         ("Urcamp", "Cultura, Memória e Patrimônio", "Registros institucionais da atuação de Clarisse Ismério em projetos, pesquisa e extensão ligados ao patrimônio cultural.", "https://urcamp.edu.br/", "Acessar portal →"),
         ("Urcamp", "Notícias da Urcamp", "Portal de notícias da universidade com cobertura institucional de ações acadêmicas, culturais e patrimoniais.", "https://urcamp.edu.br/busca/news", "Ver notícias →"),
