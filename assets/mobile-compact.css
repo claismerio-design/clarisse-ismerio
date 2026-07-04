@@ -1,0 +1,12 @@
+@media(max-width:880px){
+  .nav-inner{padding:8px 14px!important}
+  .brand{margin-bottom:7px!important}
+  .brand-logo{width:38px!important;height:38px!important}
+  .brand-name{font-size:.98rem!important}
+  .brand-name small{font-size:.46rem!important}
+  nav.menu{padding-top:6px!important;overflow-x:auto!important;-webkit-overflow-scrolling:touch!important}
+  nav.menu::before{margin-bottom:5px!important;font-size:.58rem!important;letter-spacing:.16em!important}
+  nav.menu ul{display:flex!important;grid-template-columns:none!important;flex-wrap:nowrap!important;gap:6px!important;min-width:max-content!important;justify-content:flex-start!important;padding-bottom:2px!important}
+  nav.menu a{min-height:28px!important;padding:5px 10px!important;font-size:.62rem!important;line-height:1.1!important}
+  nav.menu a.cta{padding:5px 10px!important}
+}
