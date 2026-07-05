@@ -7,6 +7,8 @@
   nav.menu{padding-top:6px!important;overflow-x:visible!important}
   nav.menu::before{margin-bottom:5px!important;font-size:.58rem!important;letter-spacing:.16em!important}
   nav.menu ul{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;flex-wrap:initial!important;gap:5px!important;min-width:0!important;justify-content:stretch!important;padding-bottom:0!important}
-  nav.menu a{min-height:26px!important;padding:4px 6px!important;font-size:.56rem!important;line-height:1.05!important;white-space:normal!important;letter-spacing:.08em!important}
+  nav.menu li{min-width:0!important}
+  nav.menu a,nav.menu .lang-switch{min-height:26px!important;padding:4px 6px!important;font-size:.56rem!important;line-height:1.05!important;white-space:normal!important;letter-spacing:.08em!important;display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important;border:1px solid var(--border)!important;border-radius:3px!important;background:rgba(255,255,255,.48)!important;color:var(--text)!important}
   nav.menu a.cta{padding:4px 6px!important}
+  nav.menu .lang-switch a{border:0!important;background:transparent!important;padding:0!important;min-height:0!important;display:inline!important;color:var(--primary)!important;font-size:inherit!important}
 }
